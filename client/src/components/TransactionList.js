@@ -10,8 +10,6 @@ function TransactionList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(transactions);
-
   return (
     <>
       <h3>History</h3>
