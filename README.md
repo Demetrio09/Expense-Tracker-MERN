@@ -1,6 +1,7 @@
 # Expense-Tracker-MERN
 
-## "scripts": {
+## "scripts": 
+  {
     "start": "node server",
     "server": "nodemon server",
     "client": "npm start --prefix client",
