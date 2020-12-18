@@ -5,6 +5,7 @@ import Balance from "./components/Balance";
 import IncomeExpenses from "./components/IncomeExpenses";
 import TransactionList from "./components/TransactionList";
 import AddTransaction from "./components/AddTransaction";
+import AgGrid from "./components/AgGrid";
 
 // import GlobalProvider
 import { GlobalProvider } from "./context/GlobalState";
@@ -18,6 +19,7 @@ const App = () => {
         <IncomeExpenses />
         <TransactionList />
         <AddTransaction />
+        <AgGrid />
       </div>
     </GlobalProvider>
   );
