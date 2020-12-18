@@ -1,9 +1,9 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer.js";
 import axios from "axios";
+import C from "./constants";
 
-// Initial state
-
+// Setting the initial state
 const initialState = {
   transactions: [],
   error: null,
@@ -11,7 +11,6 @@ const initialState = {
 };
 
 // Create context
-
 export const GlobalContext = createContext(initialState);
 
 // Provider component
@@ -24,12 +23,12 @@ export const GlobalProvider = ({ children }) => {
       const res = await axios.get("/api/v1/transactions");
 
       dispatch({
-        type: "GET_TRANSACTIONS",
+        type: C.GET_TRANSACTIONS,
         payload: res.data.data,
       });
     } catch (err) {
       dispatch({
-        type: "TRANSACTION_ERROR",
+        type: C.TRANSACTION_ERROR,
         payload: err.response.data.error,
       });
     }
@@ -40,12 +39,12 @@ export const GlobalProvider = ({ children }) => {
       await axios.delete(`/api/v1/transactions/${id}`);
 
       dispatch({
-        type: "DELETE_TRANSACTION",
+        type: C.DELETE_TRANSACTION,
         payload: id,
       });
     } catch (err) {
       dispatch({
-        type: "TRANSACTION_ERROR",
+        type: C.TRANSACTION_ERROR,
         payload: err.response.data.error,
       });
     }
@@ -62,12 +61,12 @@ export const GlobalProvider = ({ children }) => {
       const res = await axios.post("api/v1/transactions", transaction, config);
 
       dispatch({
-        type: "ADD_TRANSACTION",
+        type: C.ADD_TRANSACTION,
         payload: res.data.data,
       });
     } catch (err) {
       dispatch({
-        type: "TRANSACTION_ERROR",
+        type: C.TRANSACTION_ERROR,
         payload: err.response.data.error,
       });
     }

@@ -1,24 +1,26 @@
+import C from "./constants";
+
 export default (state, action) => {
   switch (action.type) {
-    case "GET_TRANSACTIONS":
+    case C.GET_TRANSACTIONS:
       return {
         ...state,
         loading: false,
         transactions: action.payload,
       };
-    case "DELETE_TRANSACTION":
+    case C.DELETE_TRANSACTION:
       return {
         ...state,
         transactions: state.transactions.filter(
           (transaction) => transaction._id !== action.payload
         ),
       };
-    case "ADD_TRANSACTION":
+    case C.ADD_TRANSACTION:
       return {
         ...state,
         transactions: [...state.transactions, action.payload],
       };
-    case "TRANSACTION_ERROR":
+    case C.TRANSACTION_ERROR:
       return {
         ...state,
         error: action.payload,
